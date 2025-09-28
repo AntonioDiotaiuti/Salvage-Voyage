@@ -5,8 +5,6 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInput PlayerInput;
     private PlayerInput.OnFootActions OnFoot;
-
-
     private PlayerMotor motor;
     private PlayerLook look;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
