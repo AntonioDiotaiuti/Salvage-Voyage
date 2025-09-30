@@ -40,5 +40,15 @@ public class InputManager : MonoBehaviour
       OnFoot.Disable();
     }
 
+
+    public void SetActiveControls(bool active)
+    {
+        enabled = active;
+        motor.enabled = active;
+        look.enabled = active;
+    }
+
+
+
 }
 

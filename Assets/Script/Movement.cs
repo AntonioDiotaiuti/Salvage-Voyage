@@ -139,4 +139,12 @@ public class Movement : MonoBehaviour
             Gizmos.DrawWireCube(boxCenter, modelCollider.bounds.size + new Vector3(castDistance, 0f, 0f));
         }
     }
+
+
+    public void SetBoatControls(bool active)
+    {
+        enabled = active;
+    }
+
+
 }
