@@ -1,13 +1,15 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class InputManager : MonoBehaviour
 {
     private PlayerInput PlayerInput;
     private PlayerInput.OnFootActions OnFoot;
     private PlayerMotor motor;
     private PlayerLook look;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+// Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         PlayerInput = new PlayerInput();
@@ -15,9 +17,6 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         motor = GetComponent<PlayerMotor>();
     }
-    
-        
- 
 
     // Update is called once per frame
      private void FixedUpdate  ()
@@ -40,15 +39,12 @@ public class InputManager : MonoBehaviour
       OnFoot.Disable();
     }
 
-
     public void SetActiveControls(bool active)
     {
         enabled = active;
         motor.enabled = active;
         look.enabled = active;
     }
-
-
 
 }
 
