@@ -1,18 +1,17 @@
 using UnityEngine;
-using TMPro; // <-- importante per TextMeshProUGUI
+using TMPro; 
 
 public class FishingActivator : MonoBehaviour
 {
     [Header("Riferimenti oggetti")]
-    public GameObject fishingRodWorld;   // l'oggetto visivo della canna nel mondo (da attivare/disattivare)
-    public GameObject fishingRodPlayer;  // la canna che il player "indossa" (disattivata all'inizio)
+    public GameObject fishingRodWorld;   
+    public GameObject fishingRodPlayer; 
 
     [Header("Impostazioni interazione")]
     public KeyCode interactKey = KeyCode.E;
 
-    [Header("UI Prompt (TextMeshPro)")]
-    public GameObject uiPrompt;              // pannello UI (GameObject) contenente il testo
-    public TextMeshProUGUI promptText;       // il componente TMP da trascinare nell'inspector
+    [Header("UI Prompt (TextMeshPro)")]             
+    public TextMeshProUGUI promptText; 
 
     private bool isPlayerNearby = false;
     private bool hasRod = false;
@@ -23,8 +22,8 @@ public class FishingActivator : MonoBehaviour
         if (fishingRodPlayer != null)
             fishingRodPlayer.SetActive(hasRod);
 
-        if (uiPrompt != null)
-            uiPrompt.SetActive(false); // nasconde il prompt all'inizio
+        if (promptText != null)
+            promptText.enabled = false; 
     }
 
     private void Update()
@@ -53,7 +52,7 @@ public class FishingActivator : MonoBehaviour
         {
             isPlayerNearby = true;
             UpdatePromptText();
-            if (uiPrompt != null) uiPrompt.SetActive(true);
+            if (promptText != null) promptText.enabled = true;
         }
     }
 
@@ -62,7 +61,7 @@ public class FishingActivator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            if (uiPrompt != null) uiPrompt.SetActive(false);
+            if (promptText != null) promptText.enabled = false;
         }
     }
 
